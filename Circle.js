@@ -11,7 +11,7 @@ class Circle{
             this.state = "immune";
             immuneStat +=1
             sickStat -=1;
-        }, 10000)
+        }, 7000)
         };
         this.touched=[];
     }
@@ -54,7 +54,7 @@ class Circle{
                             this.state = "immune";
                             immuneStat +=1
                             sickStat -=1;
-                        }, 10000)
+                        }, 7000)
                         }
                     }                        
                 }
