@@ -11,7 +11,7 @@ class Circle{
             this.state = "immune";
             immuneStat +=1
             sickStat -=1;
-        }, 5000)
+        }, 10000)
         };
         this.touched=[];
     }
@@ -54,16 +54,13 @@ class Circle{
                             this.state = "immune";
                             immuneStat +=1
                             sickStat -=1;
-                        }, 5000)
+                        }, 10000)
                         }
                     }                        
                 }
         }
         for(let i = 0; i < this.touched.length; i ++){
             for(let i = 0; i < touching.length; i ++){
-                if(touching[i] === dd){
-                    
-                }
             }
         }
             
