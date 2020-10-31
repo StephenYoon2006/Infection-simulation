@@ -5,7 +5,7 @@ let circles = [];
 let sick = [];
 let healthyStat = 99; 
 let sickStat = 1;
-let immuneStat = 5;
+let immuneStat = 0;
 let start = Date.now();
 
 function setup(){
@@ -18,7 +18,7 @@ function setup(){
         let sickCircle = new Circle("sick");
         circles.push(sickCircle);
     }
-    for(let i = 0; i < 5; i ++){
+    for(let i = 0; i < 0; i ++){
         let immune = new Circle("immune")
         circles.push(immune)
     }
