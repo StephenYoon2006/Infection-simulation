@@ -1,4 +1,19 @@
 const CIRCLE_SIZE = 15;
+function isInArray(element, array){ 
+    for(let i = 0; i < array.length; i ++){
+        if(element === array[i]){
+            return true;
+        }
+    }
+    return false; 
+}
+let copyArray = array =>{
+    let newArray = [];
+    for(let i = 0; i < array.length; i ++){
+        newArray.push(array[i]);
+    }
+    return newArray
+}
 class Circle{
     constructor(state){
         this.velocityX = (Math.random()*10) - 5;
@@ -44,25 +59,31 @@ class Circle{
         for(let i =0; i < circles.length; i++){
             if(Math.sqrt(Math.pow(circles[i].x-this.x,2)+(Math.pow(circles[i].y-this.y,2))) < CIRCLE_SIZE * 2){
                 touching.push(circles[i]);
-                if(circles[i].state === "sick" && this.state != "immune" && this.state != "sick")
-                    if(this.state != "sick"){
-                        if(Math.random() < 0.05){
+            }
+        }
+        for(let i = 0; i < this.touched.length; i ++){
+            if(this.touched[i] !== touching[i]){
+                if(this.touched[i].state !== "immune" && this.touched[i].state !== "healthy"){
+                    if(this.state !== "sick" && this.state !== "immune"){
+                        if(Math.random() < 0){
                         this.state = "sick";
                         sickStat +=1
                         healthyStat -=1
                         setTimeout(() =>{
-                            this.state = "immune";
+                            if(this.state === "sick"){
+                                this.state = "immune";
                             immuneStat +=1
                             sickStat -=1;
+                            }
                         }, 7000)
-                        }
-                    }                        
+                        }  
+                    }
+                                      
                 }
-        }
-        for(let i = 0; i < this.touched.length; i ++){
-            for(let i = 0; i < touching.length; i ++){
             }
+            
         }
+        this.touched = copyArray(touching);
             
 
     }
