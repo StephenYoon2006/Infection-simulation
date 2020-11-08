@@ -70,7 +70,10 @@ function draw(){
 }
 
 function rectangles(){
-    lastRectPosition += 0.5;
+    if(lastRectPosition < width - 100){
+        lastRectPosition += 0.55;
+    }
+    
 }
     
 
