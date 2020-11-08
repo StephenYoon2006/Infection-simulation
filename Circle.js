@@ -1,4 +1,5 @@
 const CIRCLE_SIZE = 15;
+const INFECTION_RATE = 0.65
 function isInArray(element, array){ 
     for(let i = 0; i < array.length; i ++){
         if(element === array[i]){
@@ -19,7 +20,7 @@ class Circle{
         this.velocityX = (Math.random()*10) - 5;
         this.velocityY = (Math.random()*10) - 5;
         this.x = Math.random()*width;
-        this.y = Math.random()*height;
+        this.y = Math.random()*(height-100 - CIRCLE_SIZE) + 100 + CIRCLE_SIZE;
         this.state = state
         if(this.state === "sick"){
             setTimeout(() =>{
@@ -52,7 +53,7 @@ class Circle{
         if(this.x > width || this.x < 0){
             this.velocityX = -this.velocityX
         }
-        if(this.y > height || this.y < 0){
+        if(this.y > height || this.y < 100 + CIRCLE_SIZE){
             this.velocityY = -this.velocityY
         }
         let touching = [];
@@ -65,7 +66,7 @@ class Circle{
             if(this.touched[i] !== touching[i]){
                 if(this.touched[i].state !== "immune" && this.touched[i].state !== "healthy"){
                     if(this.state !== "sick" && this.state !== "immune"){
-                        if(Math.random() < 0){
+                        if(Math.random() < INFECTION_RATE){
                         this.state = "sick";
                         sickStat +=1
                         healthyStat -=1
