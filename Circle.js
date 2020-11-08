@@ -1,5 +1,5 @@
 const CIRCLE_SIZE = 15;
-const INFECTION_RATE = 0.65
+const INFECTION_RATE = 0.1
 function isInArray(element, array){ 
     for(let i = 0; i < array.length; i ++){
         if(element === array[i]){
