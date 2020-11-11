@@ -5,7 +5,8 @@ let circles = [];
 let sick = [];
 let healthyStat = 99; 
 let sickStat = 1;
-let immuneStat = 0;
+let recoveredStat = 0;
+let deadStat = 0;
 let start = Date.now();
 let lastRectPosition = 0;
 function setup(){
@@ -20,8 +21,8 @@ function setup(){
         circles.push(sickCircle);
     }
     for(let i = 0; i < 0; i ++){
-        let immune = new Circle("immune")
-        circles.push(immune)
+        let recovered = new Circle("recovered")
+        circles.push(recovered)
     }
     fill("grey");
     rect(0,0,width,100);
@@ -37,14 +38,14 @@ function draw(){
     textAlign("right", "top");
     textSize(35)
     fill("white")
-    text("Time: "+(Date.now()-start)/1000, width, 250);
+    text("Time: "+(Date.now()-start)/1000, width, 300);
     textAlign("right", "top");
     textSize(25)
     
     fill("white")
     textAlign("right","top");
     textSize(35)
-    fill("green")
+    fill("lime")
     text("Healthy: " + healthyStat, width, 100)
     textAlign("right","top");
     textSize(35)
@@ -53,27 +54,35 @@ function draw(){
     textAlign("right","top");
     textSize(35)
     fill("blue")
-    text("Immune: " + immuneStat, width, 200)
+    text("Recovered: " + recoveredStat, width, 200)
+    fill("purple")
+    text("Dead: " + deadStat, width, 250);
     let healthyPercent = healthyStat;
     let sickPercent = sickStat;
-    let immunePercent = immuneStat;
+    let recoveredPercent = recoveredStat;
+    let deadPercent = deadStat;
     fill("blue");
-    rect(lastRectPosition, 0,0.5,immunePercent);
-    fill("green");
-    rect(lastRectPosition,0+immunePercent, 0.5, healthyPercent);
+    rect(lastRectPosition, 0,0.5,recoveredPercent);
+    fill("lime");
+    rect(lastRectPosition,0+recoveredPercent, 0.5, healthyPercent);
     fill("red");
-    rect(lastRectPosition, healthyPercent+immunePercent, 0.5, sickPercent);
+    rect(lastRectPosition, healthyPercent+recoveredPercent, 0.5, sickPercent);
+    fill("purple");
+    rect(lastRectPosition, healthyPercent+recoveredPercent+sickPercent, 0.5, deadPercent);
     fill("yellow")
-    text("Infection Rate: " +INFECTION_RATE * 100 + "%", width ,300)
+    text("Infection Rate: " +INFECTION_RATE * 100 + "%", width ,350)
+    fill("lime")
+    text("Recovery Rate: " +RECOVERY_RATE * 100 + "%", width ,400)
     rectangles();
-
 }
 
 function rectangles(){
-    if(lastRectPosition < width - 100){
-        lastRectPosition += 0.55;
+    if(lastRectPosition < width - 200){
+        lastRectPosition += 0.65;
     }
-    
+    if(lastRectPosition >= width - 200){
+        circles.velocityX = 0;
+    }
 }
     
 
