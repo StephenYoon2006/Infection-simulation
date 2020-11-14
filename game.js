@@ -61,27 +61,30 @@ function draw(){
     let sickPercent = sickStat;
     let recoveredPercent = recoveredStat;
     let deadPercent = deadStat;
+    noStroke();
     fill("blue");
     rect(lastRectPosition, 0,0.5,recoveredPercent);
+    noStroke();
     fill("lime");
     rect(lastRectPosition,0+recoveredPercent, 0.5, healthyPercent);
+    noStroke();
     fill("red");
     rect(lastRectPosition, healthyPercent+recoveredPercent, 0.5, sickPercent);
+    noStroke();
     fill("purple");
     rect(lastRectPosition, healthyPercent+recoveredPercent+sickPercent, 0.5, deadPercent);
+    noStroke();
     fill("yellow")
     text("Infection Rate: " +INFECTION_RATE * 100 + "%", width ,350)
+    noStroke();
     fill("lime")
     text("Recovery Rate: " +RECOVERY_RATE * 100 + "%", width ,400)
     rectangles();
 }
 
 function rectangles(){
-    if(lastRectPosition < width - 200){
+    if(lastRectPosition < width){
         lastRectPosition += 0.65;
-    }
-    if(lastRectPosition >= width - 200){
-        circles.velocityX = 0;
     }
 }
     
