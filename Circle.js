@@ -1,5 +1,5 @@
 const CIRCLE_SIZE = 15;
-const INFECTION_RATE = 0.38;
+const INFECTION_RATE = 0.5;
 const RECOVERY_RATE = 0.80;
 const REINFECTION_RATE = 0.90;
 const RERECOVERED_RATE = 0.55;
@@ -25,36 +25,56 @@ class Circle{
         this.x = Math.random()*width;
         this.y = Math.random()*(height-100 - CIRCLE_SIZE) + 100 + CIRCLE_SIZE;
         this.state = state
+        setTimeout(() =>{
+            if(this.state === "healthy"){
+                healthyStat-=1;
+            }
+            if(this.state === "sick"){
+                sickStat -=1;
+            }
+            if(this.state === "recovered"){
+                recoveredStat -=1;
+            }
+            this.state = "dead";
+            deadStat += 1;
+            let circle = new Circle("healthy");
+            circles.push(circle);
+            healthyStat +=1
+        }, 25000)
+
         if(this.state === "sick"){
             setTimeout(() =>{
-                if(Math.random()<RECOVERY_RATE){
+                if(this.state ==="sick"){
+                    if(Math.random()<RECOVERY_RATE){
                     this.state = "recovered";
                     recoveredStat +=1
                     sickStat -=1;
-                    setTimeout(() =>{
-                        if(Math.random()< REINFECTION_RATE){
-                            this.state = "sick";
-                            recoveredStat -=1;
-                            sickStat +=1
-                            setTimeout(() =>{
-                                if(Math.random() < RERECOVERED_RATE){
-                                    this.state = "recovered";
-                                    recoveredStat +=1;
-                                    sickStat -=1
-                                }
-                            }, 5000)
-                        }
-                    }, 3000)
+                    // setTimeout(() =>{
+                    //     if(Math.random()< REINFECTION_RATE){
+                    //         this.state = "sick";
+                    //         recoveredStat -=1;
+                    //         sickStat +=1
+                    //         setTimeout(() =>{
+                    //             if(Math.random() < RERECOVERED_RATE){
+                    //                 this.state = "recovered";
+                    //                 recoveredStat +=1;
+                    //                 sickStat -=1
+                    //             }
+                    //         }, 5000)
+                    //     }
+                    // }, 3000)
+                    }
                 }
-                else{
-                    this.state = "dead";
-                    deadStat +=1;
-                    sickStat-=1;
+                // else{
+                //     this.state = "dead";
+                //     deadStat +=1;
+                //     sickStat-=1;
                     
-                }
+                // }
             
             }, 7000)
         }
+                
         this.touched=[];
     }
 
@@ -108,26 +128,26 @@ class Circle{
                                     this.state = "recovered";
                                     recoveredStat +=1
                                     sickStat -=1;
-                                    setTimeout(() =>{
-                                        if(Math.random()< REINFECTION_RATE){
-                                            this.state = "sick";
-                                            recoveredStat -=1;
-                                            sickStat +=1
-                                            setTimeout(() =>{
-                                                if(Math.random() < RERECOVERED_RATE){
-                                                    this.state = "recovered";
-                                                    recoveredStat +=1;
-                                                    sickStat -=1
-                                                }
-                                            }, 5000)
-                                        }
-                                    }, 3000)
+                                    // setTimeout(() =>{
+                                    //     if(Math.random()< REINFECTION_RATE){
+                                    //         this.state = "sick";
+                                    //         recoveredStat -=1;
+                                    //         sickStat +=1
+                                    //         setTimeout(() =>{
+                                    //             if(Math.random() < RERECOVERED_RATE){
+                                    //                 this.state = "recovered";
+                                    //                 recoveredStat +=1;
+                                    //                 sickStat -=1
+                                    //             }
+                                    //         }, 5000)
+                                    //     }
+                                    // }, 3000)
                                 }
-                                else{
-                                    this.state = "dead"
-                                    deadStat +=1;
-                                    sickStat -=1;
-                                }
+                                // else{
+                                //     this.state = "dead"
+                                //     deadStat +=1;
+                                //     sickStat -=1;
+                                // }
                             }
                         }, 7000)
                         }  

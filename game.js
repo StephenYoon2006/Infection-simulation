@@ -13,12 +13,16 @@ function setup(){
     createCanvas(width,height);
     noStroke();
     for(let i = 0; i < 99; i ++){
-        let circle = new Circle("healthy");
-        circles.push(circle);
+        setTimeout(()=>{
+            let circle = new Circle("healthy");
+            circles.push(circle);
+        },i*100) 
     }
     for(let i = 0; i < 1; i++){
-        let sickCircle = new Circle("sick");
-        circles.push(sickCircle);
+        setTimeout(()=>{
+            let sickCircle = new Circle("sick");
+            circles.push(sickCircle);
+        }, 3000)
     }
     for(let i = 0; i < 0; i ++){
         let recovered = new Circle("recovered")
@@ -57,29 +61,33 @@ function draw(){
     text("Recovered: " + recoveredStat, width, 200)
     fill("purple")
     text("Dead: " + deadStat, width, 250);
-    let healthyPercent = healthyStat;
-    let sickPercent = sickStat;
-    let recoveredPercent = recoveredStat;
-    let deadPercent = deadStat;
-    noStroke();
-    fill("blue");
-    rect(lastRectPosition, 0,0.5,recoveredPercent);
-    noStroke();
-    fill("lime");
-    rect(lastRectPosition,0+recoveredPercent, 0.5, healthyPercent);
-    noStroke();
-    fill("red");
-    rect(lastRectPosition, healthyPercent+recoveredPercent, 0.5, sickPercent);
-    noStroke();
-    fill("purple");
-    rect(lastRectPosition, healthyPercent+recoveredPercent+sickPercent, 0.5, deadPercent);
-    noStroke();
-    fill("yellow")
     text("Infection Rate: " +INFECTION_RATE * 100 + "%", width ,350)
     noStroke();
     fill("lime")
     text("Recovery Rate: " +RECOVERY_RATE * 100 + "%", width ,400)
-    rectangles();
+    let healthyPercent = healthyStat;
+    let sickPercent = sickStat;
+    let recoveredPercent = recoveredStat;
+    let deadPercent = deadStat;
+    if(frameCount%10===0){
+        noStroke();
+        fill("blue");
+        rect(lastRectPosition, 0,0.5,recoveredPercent);
+        noStroke();
+        fill("lime");
+        rect(lastRectPosition,0+recoveredPercent, 0.5, healthyPercent);
+        noStroke();
+        fill("red");
+        rect(lastRectPosition, healthyPercent+recoveredPercent, 0.5, sickPercent);
+        noStroke();
+        fill("purple");
+        rect(lastRectPosition, healthyPercent+recoveredPercent+sickPercent, 0.5, deadPercent);
+        noStroke();
+        fill("yellow")    
+        rectangles();
+
+    }
+
 }
 
 function rectangles(){
