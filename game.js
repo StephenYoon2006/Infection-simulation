@@ -61,6 +61,7 @@ function draw(){
     text("Recovered: " + recoveredStat, width, 200)
     fill("purple")
     text("Dead: " + deadStat, width, 250);
+    fill("yellow")    
     text("Infection Rate: " +INFECTION_RATE * 100 + "%", width ,350)
     noStroke();
     fill("lime")
@@ -69,7 +70,7 @@ function draw(){
     let sickPercent = sickStat;
     let recoveredPercent = recoveredStat;
     let deadPercent = deadStat;
-    if(frameCount%10===0){
+    if(frameCount%5===0){
         noStroke();
         fill("blue");
         rect(lastRectPosition, 0,0.5,recoveredPercent);
@@ -83,7 +84,6 @@ function draw(){
         fill("purple");
         rect(lastRectPosition, healthyPercent+recoveredPercent+sickPercent, 0.5, deadPercent);
         noStroke();
-        fill("yellow")    
         rectangles();
 
     }
