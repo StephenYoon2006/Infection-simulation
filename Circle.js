@@ -1,8 +1,9 @@
 const CIRCLE_SIZE = 15;
-const INFECTION_RATE = 0.5;
+const INFECTION_RATE = 1;
 const RECOVERY_RATE = 0.80;
 const REINFECTION_RATE = 0.90;
 const RERECOVERED_RATE = 0.55;
+const VACCINATION_CHANCE = 0.3;
 function isInArray(element, array){ 
     for(let i = 0; i < array.length; i ++){
         if(element === array[i]){
@@ -28,18 +29,36 @@ class Circle{
         setTimeout(() =>{
             if(this.state === "healthy"){
                 healthyStat-=1;
+                this.state = "dead";
+                deadStat += 1;
             }
             if(this.state === "sick"){
                 sickStat -=1;
+                this.state = "dead";
+                deadStat += 1;
             }
             if(this.state === "recovered"){
                 recoveredStat -=1;
+                this.state = "dead";
+                deadStat += 1;
             }
-            this.state = "dead";
-            deadStat += 1;
-            let circle = new Circle("healthy");
-            circles.push(circle);
-            healthyStat +=1
+            if(this.state === "immune"){
+                immuneStat -=1;
+                this.state = "dead";
+                deadStat += 1;
+            }
+            if(Math.random()<VACCINATION_CHANCE){
+                let circle = new Circle("immune");
+                circles.push(circle);
+                immuneStat +=1;
+            }
+            
+            if(Math.random()>=VACCINATION_CHANCE){
+                let circle = new Circle("healthy");
+                circles.push(circle);
+                healthyStat +=1 
+            }
+            
         }, 25000)
 
         if(this.state === "sick"){
@@ -95,7 +114,10 @@ class Circle{
             fill("black");
             noStroke();
             ellipse(this.x, this.y, CIRCLE_SIZE, CIRCLE_SIZE);
-            
+        }
+        if(this.state === "immune"){
+            fill("white");
+            ellipse(this.x, this.y, CIRCLE_SIZE, CIRCLE_SIZE)
         }
     }
 
@@ -116,8 +138,8 @@ class Circle{
         }
         for(let i = 0; i < this.touched.length; i ++){
             if(this.touched[i] !== touching[i]){
-                if(this.touched[i].state !== "recovered" && this.touched[i].state !== "healthy" && this.touched[i].state !== "dead"){
-                    if(this.state !== "sick" && this.state !== "recovered" && this.state !== "dead"){
+                if(this.touched[i].state !== "recovered" && this.touched[i].state !== "healthy" && this.touched[i].state !== "dead" && this.touched[i].state !== "immune"){
+                    if(this.state !== "sick" && this.state !== "recovered" && this.state !== "dead" && this.state !== "immune"){
                         if(Math.random() < INFECTION_RATE){
                         this.state = "sick";
                         sickStat +=1
