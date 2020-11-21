@@ -46,7 +46,6 @@ function draw(){
     text("Time: "+(Date.now()-start)/1000, width, 500);
     textAlign("right", "top");
     textSize(25)
-    
     fill("white")
     textAlign("right","top");
     textSize(35)
