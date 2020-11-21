@@ -83,16 +83,14 @@ function draw(){
         fill("white");
         rect(lastRectPosition, 0,0.5, immunePercent);
         fill("blue");
-        rect(lastRectPosition, 0,0.5,recoveredPercent);
+        rect(lastRectPosition, immunePercent ,0.5,recoveredPercent);
         noStroke();
         fill("lime");
-        rect(lastRectPosition,0+recoveredPercent, 0.5, healthyPercent);
+        rect(lastRectPosition,immunePercent +recoveredPercent, 0.5, healthyPercent);
         noStroke();
         fill("red");
-        rect(lastRectPosition, healthyPercent+recoveredPercent, 0.5, sickPercent);
+        rect(lastRectPosition, immunePercent+healthyPercent+recoveredPercent, 0.5, sickPercent);
         noStroke();
-        fill("purple");
-        rect(lastRectPosition, healthyPercent+recoveredPercent+sickPercent, 0.5, deadPercent);
         
         noStroke();
         rectangles();
@@ -103,7 +101,7 @@ function draw(){
 
 function rectangles(){
     if(lastRectPosition < width){
-        lastRectPosition += 0.65;
+        lastRectPosition += 0.5;
     }
 }
     
