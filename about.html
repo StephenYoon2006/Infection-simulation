@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            text-align: center;
+            background-color: orange;
+        }
+        #intro{
+            color:green;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+        }
+        #graphdescription{
+            color:lightseagreen;
+            font-family:monospace;
+            
+        }
+        #legenddescription{
+            color:blueviolet;
+            font-family:Verdana, Geneva, Tahoma, sans-serif
+        }
+        .circletype{
+            color:blueviolet;
+            font-family: Verdana, Geneva, Tahoma, sans-serif
+        }
+    </style>
+</head>
+<body>
+    <h1 id = "intro">Infection Simulation is a simple system that tests how infectious this virus(this case, the COVID-19) is, how many "people" survive after a certain amount of time, and how many recover.</h1>
+    <br>
+    <h2 id = "graphdescription">The graph at the top of the screen indicates the proportions the healthy, sick, immune, and recovered circles share.</h2>
+    <br>
+    <img src = "legend.jpg" >
+    <br><br><br><br>
+    <h2 id = "legenddescription">The legend that is placed on the right of the screen provides information about the infection rate, recovery rate, vaccination chance, and also shows the amount of time passed since the simulation started.</h2>    
+    <br>
+    <img src = "graph.png";>
+    <br><br><br>
+    <h2 class = "circletype">Red circles represent sick people</h2> 
+    <img src = "sickcircle.png", width = 40px, height = 40px>
+    <h2 class = "circletype">Green circles represent healthy people</h2>
+    <img src = "healthycircle.png", width = 40px, height = 40px>
+    <h2 class = "circletype">White dots represent immune people when they receive vaccination</h2> 
+    <img src = "immune.png", width = 50px, height = 50px>
+    <h2 class = "circletype">Blue circles represent people who are recovered after being sick.</h2>
+    <img src = "recoveredcircle.png", width = 40px, height = 40px>
+</body>
+</html>
+

@@ -2,3 +2,36 @@ body{
     margin: 0;
     overflow: hidden;
 }
+h1{
+    color:red;
+}
+#start{
+    color:forestgreen;
+    background-image:url("rainbow.jpg");
+    background-size: cover;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 50px;
+    text-align:center;
+    margin: 200px;
+    padding: 100px;
+    font-size: 50px;
+    border: transparent;
+}
+
+#infectionRate{
+    color: red;
+    background-color: yellowgreen;
+    margin: 50px;
+    padding: 15px;
+    border: transparent;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+#recoveryRate{
+    color: blue;
+    background-color: burlywood;
+    padding: 15px;
+    border: transparent;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}

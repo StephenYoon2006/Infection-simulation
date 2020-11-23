@@ -11,7 +11,8 @@ let immuneStat = 0;
 let start = Date.now();
 let lastRectPosition = 0;
 function setup(){
-    createCanvas(width,height);
+    let canvas = createCanvas(width,height);
+    canvas.parent("simulation");
     noStroke();
     for(let i = 0; i < 99; i ++){
         setTimeout(()=>{

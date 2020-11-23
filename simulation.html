@@ -5,11 +5,41 @@
         Infection Simulator
     </title>
     <link rel = "stylesheet" href = "./style.css">
+    <style>
+        body{
+            background-image: url("virus.gif");
+            background-repeat: none;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
+    <div>
+        <center><button id="start"> Start Simulator</button></center>
+        <center><button id = "infectionRate">Click here to change the infection rate</button></center>
+        <center><button id = "recoveryRate">Click here to change the recovery rate</button></center>
+    </div>
+    <div id = "simulation" style = "display:none;"></div>
     <script src = "https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
     <script src = "Circle.js"></script>
     <script src = "game.js"></script>
+    <script>
+        document.getElementById("start").addEventListener("click", () =>{
+            document.getElementById("simulation");
+            simulation.style.display = "block";
+            document.getElementById("start").style.display = "none"
+        })
+
+        document.getElementById("infectionRate").addEventListener("click",()=>{
+            let newInfectionRate = prompt("Set or change the infection rate(%): 0-100")/100;
+            INFECTION_RATE = newInfectionRate;
+        })
+        document.getElementById("recoveryRate").addEventListener("click",()=>{
+            let newRecoveryRate = prompt("Set or change the recovery rate(%): 0-100")/100;
+            RECOVERY_RATE = newRecoveryRate;
+        })
+        
+    </script>
     
 </body>
 </html>
