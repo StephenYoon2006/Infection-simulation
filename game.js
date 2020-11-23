@@ -1,4 +1,4 @@
-let height = window.innerHeight;
+let height = window.innerHeight-45;
 let width = window.innerWidth;
 let circle = new Circle();
 let circles = [];
@@ -101,7 +101,7 @@ function draw(){
 
 function rectangles(){
     if(lastRectPosition < width){
-        lastRectPosition += 0.5;
+        lastRectPosition += 0.55;
     }
 }
     
