@@ -17,21 +17,3 @@ h1{
     font-size: 50px;
     border: transparent;
 }
-
-#infectionRate{
-    color: red;
-    background-color: yellowgreen;
-    margin: 50px;
-    padding: 15px;
-    border: transparent;
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-}
-#recoveryRate{
-    color: blue;
-    background-color: burlywood;
-    padding: 15px;
-    border: transparent;
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-}
