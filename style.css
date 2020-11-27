@@ -5,7 +5,7 @@ h1{
     color:red;
 }
 #start{
-    color:forestgreen;
+    color:red;
     background-image:url("rainbow.jpg");
     background-size: cover;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -16,10 +16,18 @@ h1{
     font-size: 50px;
     border: transparent;
 }
+#start:hover{
+    color:lime;
+    background-color:red;
+    text-decoration: underline;
+}
 #goBack{
     color:red;
     font-size: 20px;
+    text-decoration: none;
+
 }
+
 #infectionRate{
     color:red;
     background-color: gold;
@@ -71,9 +79,11 @@ h1{
     font-size: 65px;
     color: gold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
     
 }
 #gotosimulation:hover{
     background-color: orange;
-    color:whitesmoke;
+    color:black;
+    text-decoration: underline;
 }
