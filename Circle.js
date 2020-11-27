@@ -3,7 +3,7 @@ let INFECTION_RATE = 1;
 let RECOVERY_RATE = 1;
 const REINFECTION_RATE = 0.90;
 const RERECOVERED_RATE = 0.55;
-const VACCINATION_CHANCE = 0.3;
+let VACCINATION_CHANCE = 0.3;
 function isInArray(element, array){ 
     for(let i = 0; i < array.length; i ++){
         if(element === array[i]){

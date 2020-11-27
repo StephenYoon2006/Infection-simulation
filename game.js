@@ -101,7 +101,7 @@ function draw(){
 
 function rectangles(){
     if(lastRectPosition < width){
-        lastRectPosition += 0.55;
+        lastRectPosition += 0.4;
     }
 }
     

@@ -18,6 +18,7 @@
         <center><button id="start"> Start Simulator</button></center>
         <center><button id = "infectionRate">Click here to change the infection rate</button></center>
         <center><button id = "recoveryRate">Click here to change the recovery rate</button></center>
+        <center><button id = "vaccinationChance">Click here to change the vaccination chance</button></center>
     </div>
     <div id = "simulation" style = "display:none;"></div>
     <script src = "https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
@@ -32,11 +33,22 @@
 
         document.getElementById("infectionRate").addEventListener("click",()=>{
             let newInfectionRate = prompt("Set or change the infection rate(%): 0-100")/100;
-            INFECTION_RATE = newInfectionRate;
+            if(newInfectionRate<=100 && newInfectionRate>=0){
+                INFECTION_RATE = newInfectionRate;
+            }
+
         })
         document.getElementById("recoveryRate").addEventListener("click",()=>{
             let newRecoveryRate = prompt("Set or change the recovery rate(%): 0-100")/100;
-            RECOVERY_RATE = newRecoveryRate;
+            if(newRecoveryRate<=100 && newRecoveryRate>=0){
+                RECOVERY_RATE = newRecoveryRate;
+            }
+        })
+        document.getElementById("vaccinationChance").addEventListener("click",()=>{
+            let newVaccinationChance = prompt("Set or change the vaccination chance(%): 0-100")/100;
+            if(newVaccinationChance<=100 && newVaccinationChance>=0){
+                VACCINATION_CHANCE = newVaccinationChance;
+            }
         })
 
 
