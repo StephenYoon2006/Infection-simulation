@@ -1,6 +1,5 @@
 body{
     margin: 0;
-    overflow: hidden;
 }
 h1{
     color:red;
@@ -24,10 +23,47 @@ h1{
 #infectionRate{
     color:red;
     background-color: gold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
 }
 
 
 #recoveryRate{
     color: blue;
     background-color:silver;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+}
+
+#vaccinationChance{
+    color: forestgreen;
+    background-color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+}
+
+#explanation{
+    color: orangered;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#intro{
+    color:limegreen;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#graphdescription{
+    color:lightseagreen;
+    font-family:monospace;
+    
+}
+#legenddescription{
+    color:goldenrod;
+    font-family:monospace
+}
+.circletype{
+    color:blueviolet;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+#buttonInstructions{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }

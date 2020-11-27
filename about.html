@@ -1,26 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel = "stylesheet" href = "./style.css">
     <style>
         body{
-            background-color: orange;
-        }
-        #intro{
-            color:green;
-            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
-        }
-        #graphdescription{
-            color:lightseagreen;
-            font-family:monospace;
-            
-        }
-        #legenddescription{
-            color:blueviolet;
-            font-family:Verdana, Geneva, Tahoma, sans-serif
-        }
-        .circletype{
-            color:blueviolet;
-            font-family: Verdana, Geneva, Tahoma, sans-serif
+            background-color: black;
+            margin: 20px;
         }
     </style>
 </head>
@@ -28,11 +13,13 @@
     <center>
     <h1 id = "intro">Infection Simulation is a simple system that tests how infectious this virus(this case, the COVID-19) is, how many "people" survive after a certain amount of time, and how many recover.</h1>
     <br>
-    <h2 id = "graphdescription">The graph at the top of the screen indicates the proportions the healthy, sick, immune, and recovered circles share.</h2>
+    <h2 id = "explanation">As the simulation runs, healthy circles will first start to appear on the screen. After three seconds, a sick circle will be spanwed, infecting other circles that it touches. After a while(approximately 7 seconds), each sick circles start recovering, and change its color to blue. The circles "live" for 15 seconds after they are spanwed. And for every circle that "dies" and disappear from the screen, a new, healthy circle is "born"(This cycle continues infinitely). When a circle is born, they have a chance of getting vaccinated. If they are vaccinated, then they become immune, and are not able to be infected or infect any other circles.</h2></h1>
+    <br><br>
+    <h2 id = "legenddescription">The legend that is placed on the right of the screen provides information about the infection rate, recovery rate, vaccination chance, and also shows the amount of time passed since the simulation started.</h2>
     <br>
-    <img src = "legend.jpg" >
+    <img src = "legend.jpg">
     <br><br><br><br>
-    <h2 id = "legenddescription">The legend that is placed on the right of the screen provides information about the infection rate, recovery rate, vaccination chance, and also shows the amount of time passed since the simulation started.</h2>    
+    <h2 id = "graphdescription">The graph, which is located at the top of the screen, shows the proportions of each type of circles.</h2>    
     <br>
     <img src = "graph.png";>
     <br><br><br>
@@ -44,6 +31,10 @@
     <img src = "immune.png", width = 50px, height = 50px>
     <h2 class = "circletype">Blue circles represent people who are recovered after being sick.</h2>
     <img src = "recoveredcircle.png", width = 40px, height = 40px>
+    <br><br>
+    <img src = "change buttons.png",width = 100px, height = 100px></a>
+    <br><br><br>
+    <h2 id = "buttonInstructions">You can click on any of these three buttons to change the infection rate, recovery rate, or the vaccination chance, either before starting the simulator, or while the simulator runs</h2>
     </center>   
     <br><br>
     <a href = "index.html", id = "goBack">Go back</a>
