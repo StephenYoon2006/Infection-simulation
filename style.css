@@ -67,3 +67,13 @@ h1{
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
+#gotosimulation{
+    font-size: 65px;
+    color: gold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+#gotosimulation:hover{
+    background-color: orange;
+    color:whitesmoke;
+}

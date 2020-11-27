@@ -30,7 +30,7 @@
         document.getElementById("start").addEventListener("click", () =>{
             document.getElementById("simulation");
             simulation.style.display = "block";
-            document.getElementById("start").style.display = "none"
+            document.getElementById("start").style.display = "none";
         })
 
         document.getElementById("infectionRate").addEventListener("click",()=>{
@@ -38,30 +38,17 @@
             if(newInfectionRate<=100 && newInfectionRate>=0){
                 INFECTION_RATE = newInfectionRate;
             }
-            if(newInfectionRate = " "){
-                alert("Please enter a valid input")
-                INFECTION_RATE = 1
-            }
-
         })
         document.getElementById("recoveryRate").addEventListener("click",()=>{
             let newRecoveryRate = prompt("Set or change the recovery rate(%): 0-100")/100;
             if(newRecoveryRate<=100 && newRecoveryRate>=0){
                 RECOVERY_RATE = newRecoveryRate;
             }
-            if(newRecoveryRate = " "){
-                alert("Please enter a valid input")
-                RECOVERY_RATE = 1
-            }
         })
         document.getElementById("vaccinationChance").addEventListener("click",()=>{
             let newVaccinationChance = prompt("Set or change the vaccination chance(%): 0-100")/100;
             if(newVaccinationChance<=100 && newVaccinationChance>=0){
                 VACCINATION_CHANCE = newVaccinationChance;
-            }
-            if(newVaccinationChance = " "){
-                alert("Please enter a valid input")
-                VACCINATION_CHANCE = 30;
             }
         })
 
