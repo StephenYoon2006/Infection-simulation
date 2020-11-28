@@ -8,38 +8,24 @@ let sickStat = 1;
 let recoveredStat = 0;
 let deadStat = 0;
 let immuneStat = 0;
-let start = Date.now();
 let lastRectPosition = 0;
+let startSimulation = false;
+let start = Date.now();
+
 function setup(){
     let canvas = createCanvas(width,height);
     canvas.parent("simulation");
     noStroke();
-    for(let i = 0; i < 99; i ++){
-        setTimeout(()=>{
-            let circle = new Circle("healthy");
-            circles.push(circle);
-        },i*100) 
-    }
-    for(let i = 0; i < 1; i++){
-        setTimeout(()=>{
-            let sickCircle = new Circle("sick");
-            circles.push(sickCircle);
-        }, 3000)
-    }
-    for(let i = 0; i < 0; i ++){
-        let recovered = new Circle("recovered")
-        circles.push(recovered)
-    }
-    fill("grey");
-    rect(0,0,width,100);
 }
 
 function draw(){
     fill("black");
     rect(0,100,width,height-100)
     for(let i = 0; i < circles.length; i ++){
-        circles[i].draw();
-        circles[i].update();
+        if(startSimulation === true){
+            circles[i].draw();
+            circles[i].update();
+        }
     }
     textAlign("right", "top");
     textSize(35)
@@ -100,7 +86,7 @@ function draw(){
 }
 
 function rectangles(){
-    if(lastRectPosition < width){
+    if(lastRectPosition < width && startSimulation === true){
         lastRectPosition += 0.4;
     }
 }

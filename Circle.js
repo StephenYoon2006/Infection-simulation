@@ -124,6 +124,7 @@ class Circle{
     update(){
         this.x += this.velocityX;
         this.y += this.velocityY;
+        console.log(startSimulation);
         if(this.x > width || this.x < 0){
             this.velocityX = -this.velocityX
         }

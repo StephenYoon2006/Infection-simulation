@@ -28,28 +28,63 @@
     <script src = "game.js"></script>
     <script>
         document.getElementById("start").addEventListener("click", () =>{
+            startSimulation = true;
+            start = Date.now();
             document.getElementById("simulation");
             simulation.style.display = "block";
             document.getElementById("start").style.display = "none";
+            for(let i = 0; i < 99; i ++){
+                setTimeout(()=>{
+                    let circle = new Circle("healthy");
+                    circles.push(circle);
+                },i*100) 
+            }
+            for(let i = 0; i < 1; i++){
+                setTimeout(()=>{
+                    let sickCircle = new Circle("sick");
+                    circles.push(sickCircle);
+                }, 3000)
+            }
+            for(let i = 0; i < 0; i ++){
+                let recovered = new Circle("recovered")
+                circles.push(recovered)
+            }
+            fill("grey");
+            rect(0,0,width,100)
         })
 
         document.getElementById("infectionRate").addEventListener("click",()=>{
-            let newInfectionRate = prompt("Set or change the infection rate(%): 0-100")/100;
-            if(newInfectionRate<=100 && newInfectionRate>=0){
-                INFECTION_RATE = newInfectionRate;
+            startSimulation = false;
+            let newInfectionRate = prompt("Set or change the infection rate(%): 0-100");
+            startSimulation = true;
+            if (isNaN(newInfectionRate) === false){
+                if(newInfectionRate<=100 && newInfectionRate>=0){
+                    INFECTION_RATE = newInfectionRate/100;
+                }
             }
+            
         })
         document.getElementById("recoveryRate").addEventListener("click",()=>{
-            let newRecoveryRate = prompt("Set or change the recovery rate(%): 0-100")/100;
-            if(newRecoveryRate<=100 && newRecoveryRate>=0){
-                RECOVERY_RATE = newRecoveryRate;
+            startSimulation = false;
+            let newRecoveryRate = prompt("Set or change the recovery rate(%): 0-100");
+            startSimulation = true;
+            if(isNaN(newRecoveryRate) === false){
+                if(newRecoveryRate<=100 && newRecoveryRate>=0){
+                    RECOVERY_RATE = newRecoveryRate/100;
+                }
             }
+            
         })
         document.getElementById("vaccinationChance").addEventListener("click",()=>{
-            let newVaccinationChance = prompt("Set or change the vaccination chance(%): 0-100")/100;
-            if(newVaccinationChance<=100 && newVaccinationChance>=0){
-                VACCINATION_CHANCE = newVaccinationChance;
+            startSimulation = false;
+            let newVaccinationChance = prompt("Set or change the vaccination chance(%): 0-100");
+            startSimulation = true;
+            if(isNaN(newVaccinationChance) === false){
+                if(newVaccinationChance<=100 && newVaccinationChance>=0){
+                    VACCINATION_CHANCE = newVaccinationChance/100;
+                } 
             }
+            
         })
 
 
