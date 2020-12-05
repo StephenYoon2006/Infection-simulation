@@ -110,6 +110,7 @@ h1{
     top: 20px;
     left: 0px;
     color: white;
+    
 }
 #title:hover{
     color:orangered;
@@ -123,9 +124,11 @@ h1{
     color: royalblue;
 }
 
+
 #infectionsimulator:hover{
     text-decoration: underline;
     color: #DA9100;
+    
 }
 
 #about{
