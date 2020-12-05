@@ -118,32 +118,61 @@ class Circle{
                 healthyStat-=1;
                 this.state = "dead";
                 deadStat += 1;
+                if(Math.random()<VACCINATION_CHANCE){
+                    let circle = new Circle("immune");
+                    circles.push(circle);
+                    immuneStat +=1;
+                }
+                else{
+                    let circle = new Circle("healthy");
+                    circles.push(circle);
+                    healthyStat+=1;
+                }
             }
             if(this.state === "sick"){
                 sickStat -=1;
                 this.state = "dead";
                 deadStat += 1;
+                if(Math.random()<VACCINATION_CHANCE){
+                    let circle = new Circle("immune");
+                    circles.push(circle);
+                    immuneStat +=1;
+                }
+                else{
+                    let circle = new Circle("healthy");
+                    circles.push(circle);
+                    healthyStat+=1;
+                }
             }
             if(this.state === "recovered"){
                 recoveredStat -=1;
                 this.state = "dead";
                 deadStat += 1;
+                if(Math.random()<VACCINATION_CHANCE){
+                    let circle = new Circle("immune");
+                    circles.push(circle);
+                    immuneStat +=1;
+                }
+                else{
+                    let circle = new Circle("healthy");
+                    circles.push(circle);
+                    healthyStat+=1;
+                }
             }
             if(this.state === "immune"){
                 immuneStat -=1;
                 this.state = "dead";
                 deadStat += 1;
-            }
-            if(Math.random()<VACCINATION_CHANCE){
-                let circle = new Circle("immune");
-                circles.push(circle);
-                immuneStat +=1;
-            }
-            
-            if(Math.random()>=VACCINATION_CHANCE){
-                let circle = new Circle("healthy");
-                circles.push(circle);
-                healthyStat +=1 
+                if(Math.random()<VACCINATION_CHANCE){
+                    let circle = new Circle("immune");
+                    circles.push(circle);
+                    immuneStat +=1;
+                }
+                else{
+                    let circle = new Circle("healthy");
+                    circles.push(circle);
+                    healthyStat+=1;
+                }
             }
         }
     }

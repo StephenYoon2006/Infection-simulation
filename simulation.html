@@ -66,6 +66,10 @@
                 INFECTION_RATE = newInfectionRate/100;
                 startSimulation=true;
             }
+            if(newInfectionRate=== ""|| newInfectionRate===" "|| newInfectionRate==="  "){
+                alert("Please enter a valid number");
+                INFECTION_RATE=1;
+            }
         })
         document.getElementById("recoveryRate").addEventListener("click",()=>{
             let newRecoveryRate = prompt("Set or change the recovery rate(%): 0-100");
