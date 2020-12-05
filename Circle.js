@@ -25,8 +25,95 @@ class Circle{
         this.velocityY = (Math.random()*10) - 5;
         this.x = Math.random()*width;
         this.y = Math.random()*(height-100 - CIRCLE_SIZE) + 100 + CIRCLE_SIZE;
-        this.state = state
-        setTimeout(() =>{
+        this.state = state;
+        this.age = 0;
+        if(this.state==="sick"){
+            this.sickCircleAge=this.age;
+        }
+
+        // if(this.state === "sick"){
+        //     setTimeout(() =>{
+        //         if(this.state ==="sick"){
+        //             if(Math.random()<RECOVERY_RATE){
+        //             this.state = "recovered";
+        //             recoveredStat +=1
+        //             sickStat -=1;
+        //         }
+        //         }
+            
+        //     },7000)
+        // }
+        this.touched=[];
+    }
+    draw(){
+        if(this.state === "sick"){
+            fill("red");
+            ellipse(this.x, this.y, CIRCLE_SIZE, CIRCLE_SIZE)
+        }
+        if(this.state === "healthy"){
+            fill("lime");
+            ellipse(this.x, this.y, CIRCLE_SIZE, CIRCLE_SIZE)
+        }
+        if(this.state === "recovered"){
+            fill("blue");
+            ellipse(this.x, this.y, CIRCLE_SIZE, CIRCLE_SIZE)
+        }
+        if(this.state === "dead"){
+            fill("black");
+            noStroke();
+            ellipse(this.x, this.y, CIRCLE_SIZE, CIRCLE_SIZE);
+        }
+        if(this.state === "immune"){
+            fill("white");
+            ellipse(this.x, this.y, CIRCLE_SIZE, CIRCLE_SIZE)
+        }
+    }
+
+    update(){
+        this.x += this.velocityX;
+        this.y += this.velocityY;
+        if(this.x > width || this.x < 0){
+            this.velocityX = -this.velocityX
+        }
+        if(this.y > height || this.y < 100 + CIRCLE_SIZE){
+            this.velocityY = -this.velocityY
+        }
+        let touching = [];
+        for(let i =0; i < circles.length; i++){
+            if(Math.sqrt(Math.pow(circles[i].x-this.x,2)+(Math.pow(circles[i].y-this.y,2))) < CIRCLE_SIZE * 2){
+                touching.push(circles[i]);
+            }
+        }
+        for(let i = 0; i < this.touched.length; i ++){
+            if(this.touched[i] !== touching[i]){
+                if(this.touched[i].state !== "recovered" && this.touched[i].state !== "healthy" && this.touched[i].state !== "dead" && this.touched[i].state !== "immune"){
+                    if(this.state !== "sick" && this.state !== "recovered" && this.state !== "dead" && this.state !== "immune"){
+                        if(Math.random() < INFECTION_RATE){
+                        this.state = "sick";
+                        this.sickCircleAge=this.age;
+                        sickStat +=1;
+                        healthyStat -=1;
+                        }  
+                    }
+                                      
+                }
+            }
+            
+        }
+        if(this.state === "sick"){
+            if(this.sickCircleAge+420===this.age){
+                if(Math.random() < RECOVERY_RATE ){
+                    this.state = "recovered";
+                    recoveredStat +=1;
+                    sickStat -=1;
+                }
+                
+            }
+
+        }
+        this.touched = copyArray(touching);
+        this.age++;
+        if(this.age === 900){
             if(this.state === "healthy"){
                 healthyStat-=1;
                 this.state = "dead";
@@ -58,90 +145,7 @@ class Circle{
                 circles.push(circle);
                 healthyStat +=1 
             }
-            
-        }, 15000)
-
-        if(this.state === "sick"){
-            setTimeout(() =>{
-                if(this.state ==="sick"){
-                    if(Math.random()<RECOVERY_RATE){
-                    this.state = "recovered";
-                    recoveredStat +=1
-                    sickStat -=1;
-                }
-                }
-            
-            },7000)
         }
-        this.touched=[];
-    }
-    draw(){
-        if(this.state === "sick"){
-            fill("red");
-            ellipse(this.x, this.y, CIRCLE_SIZE, CIRCLE_SIZE)
-        }
-        if(this.state === "healthy"){
-            fill("lime");
-            ellipse(this.x, this.y, CIRCLE_SIZE, CIRCLE_SIZE)
-        }
-        if(this.state === "recovered"){
-            fill("blue");
-            ellipse(this.x, this.y, CIRCLE_SIZE, CIRCLE_SIZE)
-        }
-        if(this.state === "dead"){
-            fill("black");
-            noStroke();
-            ellipse(this.x, this.y, CIRCLE_SIZE, CIRCLE_SIZE);
-        }
-        if(this.state === "immune"){
-            fill("white");
-            ellipse(this.x, this.y, CIRCLE_SIZE, CIRCLE_SIZE)
-        }
-    }
-
-    update(){
-        this.x += this.velocityX;
-        this.y += this.velocityY;
-        console.log(startSimulation);
-        if(this.x > width || this.x < 0){
-            this.velocityX = -this.velocityX
-        }
-        if(this.y > height || this.y < 100 + CIRCLE_SIZE){
-            this.velocityY = -this.velocityY
-        }
-        let touching = [];
-        for(let i =0; i < circles.length; i++){
-            if(Math.sqrt(Math.pow(circles[i].x-this.x,2)+(Math.pow(circles[i].y-this.y,2))) < CIRCLE_SIZE * 2){
-                touching.push(circles[i]);
-            }
-        }
-        for(let i = 0; i < this.touched.length; i ++){
-            if(this.touched[i] !== touching[i]){
-                if(this.touched[i].state !== "recovered" && this.touched[i].state !== "healthy" && this.touched[i].state !== "dead" && this.touched[i].state !== "immune"){
-                    if(this.state !== "sick" && this.state !== "recovered" && this.state !== "dead" && this.state !== "immune"){
-                        if(Math.random() < INFECTION_RATE){
-                        this.state = "sick";
-                        sickStat +=1
-                        healthyStat -=1
-                        setTimeout(() =>{
-                            if(this.state === "sick"){
-                                if(Math.random() < RECOVERY_RATE ){
-                                    this.state = "recovered";
-                                    recoveredStat +=1;
-                                    sickStat -=1;
-                                }
-                            }
-                        }, 7000)
-                        }  
-                    }
-                                      
-                }
-            }
-            
-        }
-        this.touched = copyArray(touching);
-            
-
     }
         
 

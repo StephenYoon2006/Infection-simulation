@@ -1,4 +1,4 @@
-let height = window.innerHeight-65;
+let height = window.innerHeight-120;
 let width = window.innerWidth;
 let circle = new Circle();
 let circles = [];
