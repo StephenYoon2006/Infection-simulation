@@ -10,7 +10,9 @@ let deadStat = 0;
 let immuneStat = 0;
 let lastRectPosition = 0;
 let startSimulation = false;
-let start = Date.now();
+// let start = Date.now();
+let currentTime=true;
+
 
 function setup(){
     let canvas = createCanvas(width,height);
@@ -18,11 +20,12 @@ function setup(){
     noStroke();
 }
 
+
 function draw(){
     fill("black");
     rect(0,100,width,height-100)
     for(let i = 0; i < circles.length; i ++){
-        if(startSimulation === true){
+        if(startSimulation === true || currentTime === true){
             circles[i].draw();
             circles[i].update();
         }
@@ -30,7 +33,9 @@ function draw(){
     textAlign("right", "top");
     textSize(35)
     fill("skyblue")
-    text("Time: "+(Date.now()-start)/1000, width, 500);
+    if(currentTime === true){
+        text("Time: "+(Date.now()-start)/1000, width, 500);
+    }
     textAlign("right", "top");
     textSize(25)
     fill("white")
