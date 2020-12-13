@@ -4,15 +4,16 @@ body{
 h1{
     color:red;
 }
+
 #start{
     color:red;
     background-color: #D3D3D3;
     background-size: cover;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border-radius: 50px;
     text-align:center;
     padding: 100px;
-    font-size: 50px;
+    font-size: 100px;
     border: transparent;
     position: relative;
     top: 200px;
@@ -52,7 +53,7 @@ h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 10px;
     position: relative;
-    top: 300px;
+    top: 325px;
     padding: 10px;
 }
 
@@ -63,7 +64,7 @@ h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 10px;
     position: relative;
-    top: 300px;
+    top: 350px;
     padding: 10px;
 }
 
@@ -73,7 +74,7 @@ h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 10px;
     position: relative;
-    top: 300px;
+    top: 375px;
     padding: 10px;
 }
 
@@ -164,8 +165,18 @@ h1{
 }
 
 #showHideStat{
-    background-color: white;
+    background: rgba(200, 29, 1, 0.2);
     position: fixed;
     bottom: 10px;
     right: 0px;
+    font-size: 20px;
+    color:rgba(255,255,255,1);
+    border: none;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+#showHideStat:hover{
+    opacity: 1;
+    background: rgba(232, 126, 4, 0.2);
+    color: cyan;
 }
