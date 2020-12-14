@@ -79,35 +79,71 @@ h1{
 }
 
 #explanation{
-    color: seagreen;
+    color: #FF6347;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: solid;
+    border-color:white;
+    border-top: dashed;
+    border-bottom: dashed;
+    border-bottom-color: crimson;
+    border-top-color:crimson;
+    padding: 20px;
+    margin-bottom: 0px;
 }
 #intro{
-    color:lime;
+    color:white;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border: solid;
+    border-bottom: dashed;
+    padding: 30px;
 }
 #graphdescription{
-    color:seagreen;
-    font-family:monospace;
-    
+    color:#FF9933 ;
+    font-size: 25px;
+    background-color: transparent;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border: solid;
+    border-color:white;
+    border-top: dashed;
+    border-bottom: dashed;
+    border-bottom-color: coral;
+    border-top-color:coral;
+    padding: 20px;
 }
 #legenddescription{
-    color:seagreen;
-    font-family:monospace
+    color:yellow;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border: solid;
+    border-color: white;
+    border-top: dashed;
+    border-bottom: dashed;
+    border-bottom-color: yellow;
+    border-top-color:yellow;
+    padding: 20px;
+    margin-top: 0px;
 }
 .circletype{
-    color:seagreen;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    color:orangered;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #buttonInstructions{
-    color: seagreen;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    color: limegreen;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: solid;
+    border-color: white;
+    border-top: dashed;
+    border-bottom: solid;
+    border-bottom-color: lime;
+    border-top-color:lime;
+    padding: 20px;
+    margin-top: 0px;
 }
 #gotosimulation{
     font-size: 65px;
     color: gold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: none;
+
     
 }
 #gotosimulation:hover{
